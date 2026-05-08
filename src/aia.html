@@ -1510,5 +1510,28 @@ document.querySelectorAll('.slider-wrap').forEach(wrap => {
   });
 });
 </script>
+<div class="img-lightbox" id="imgLightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightbox(event,true)">×</button>
+  <img id="lbImg" src="" alt="">
+</div>
+<script>
+function openLightbox(src){
+  const lb = document.getElementById('imgLightbox');
+  document.getElementById('lbImg').src = src;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e, force){
+  if(force || e.target.id === 'imgLightbox' || e.target.classList.contains('lb-close')){
+    document.getElementById('imgLightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.querySelectorAll('.zoomable, .slide-img img').forEach(img => {
+  img.addEventListener('click', () => {
+    if(window.innerWidth <= 900) openLightbox(img.src);
+  });
+});
+</script>
 </body>
 </html>
