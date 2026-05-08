@@ -765,6 +765,24 @@ footer .f-right{
   .slide-img img{padding:10px}
 }
 
+/* Lightbox (mobile only) */
+.img-lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,.92);
+  display:none;align-items:center;justify-content:center;
+  z-index:9999;padding:20px;
+}
+.img-lightbox.open{display:flex}
+.img-lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.img-lightbox .lb-close{
+  position:absolute;top:16px;right:16px;width:40px;height:40px;
+  border-radius:50%;background:rgba(255,255,255,.12);color:#fff;
+  border:none;font-size:22px;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;
+}
+@media(max-width:900px){
+  .zoomable, .slide-img img{cursor:zoom-in}
+}
+
 /* ─── HALL DUO ─── */
 .hall-duo{
   display:grid;grid-template-columns:1fr 1fr;
