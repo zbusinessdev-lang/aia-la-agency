@@ -772,6 +772,18 @@ footer .f-right{
 /* Espacement entre sections (toutes versions) */
 section + section{margin-top:14px}
 
+/* Délimitation des sections : bord arrondi + surbrillance gold */
+section{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  margin-left:14px;margin-right:14px;
+  box-shadow:0 0 0 1px rgba(201,169,110,.28), 0 0 24px -6px rgba(201,169,110,.18);
+}
+@media(max-width:900px){
+  section{margin-left:8px;margin-right:8px;border-radius:12px}
+}
+
 /* Lightbox (mobile only) */
 .img-lightbox{
   position:fixed;inset:0;background:rgba(0,0,0,.92);
