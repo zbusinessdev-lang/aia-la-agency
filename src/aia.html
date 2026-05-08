@@ -783,6 +783,38 @@ footer .f-right{
   .zoomable, .slide-img img{cursor:zoom-in}
 }
 
+/* Mobile-only: stack text above image, show full image */
+@media(max-width:900px){
+  /* Le Projet — stats */
+  .stats-section{min-height:auto;display:flex;flex-direction:column}
+  .stats-section .stats-bg{position:relative;inset:auto;order:2}
+  .stats-section .stats-bg img{height:auto;filter:none;cursor:zoom-in}
+  .stats-overlay{position:relative;padding:50px 24px;order:1;height:auto}
+  .stats-card{max-width:100%;padding:30px 24px}
+  .stats-label-br{position:relative;bottom:auto;right:auto;text-align:left;padding:18px 24px;order:3}
+
+  /* Accueil & Sécurité */
+  .securite-section{min-height:auto;display:flex;flex-direction:column}
+  .securite-section .full-photo{position:relative;inset:auto;order:2}
+  .securite-section .full-photo img{height:auto;filter:none;cursor:zoom-in}
+  .securite-content{position:relative;margin:0;padding:50px 24px;order:1;max-width:100%;border:none;background:var(--dark)}
+
+  /* Intérieurs lumineux */
+  .interior-hero{display:flex;flex-direction:column-reverse}
+  .interior-hero img{cursor:zoom-in}
+  .interior-hero-caption{position:relative;left:auto;bottom:auto;transform:none;background:transparent;border:none;padding:30px 24px;text-align:left;backdrop-filter:none}
+
+  /* Verdure */
+  .verdure-section{display:flex;flex-direction:column-reverse;min-height:auto}
+  .verdure-section img{cursor:zoom-in}
+  .verdure-caption{position:relative;top:auto;left:auto;transform:none;background:transparent;border:none;padding:30px 24px;text-align:left;backdrop-filter:none}
+
+  /* Extérieur final */
+  .ext-section{display:flex;flex-direction:column-reverse;min-height:auto}
+  .ext-section img{cursor:zoom-in}
+  .ext-caption{position:relative;top:auto;left:auto;transform:none;background:transparent;border:none;padding:30px 24px;text-align:left;backdrop-filter:none}
+}
+
 /* ─── HALL DUO ─── */
 .hall-duo{
   display:grid;grid-template-columns:1fr 1fr;
@@ -1519,7 +1551,7 @@ function closeLightbox(e, force){
     document.body.style.overflow='';
   }
 }
-document.querySelectorAll('.zoomable, .slide-img img, .aia-slide img').forEach(img => {
+document.querySelectorAll('.zoomable, .slide-img img, .aia-slide img, .stats-bg img, .securite-section .full-photo img, .interior-hero > img, .verdure-section > img, .ext-section > img').forEach(img => {
   img.addEventListener('click', () => {
     if(window.innerWidth <= 900) openLightbox(img.src);
   });
