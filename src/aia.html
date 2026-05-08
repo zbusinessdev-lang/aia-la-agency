@@ -763,7 +763,14 @@ footer .f-right{
   .plans-header{flex-direction:column;align-items:flex-start;gap:20px}
   .plans-header .slider-controls{align-self:flex-start}
   .slide-img img{padding:10px}
+  /* Équipements : texte avant image sur mobile */
+  .prestations-section{display:flex;flex-direction:column}
+  .prestations-text{order:1}
+  .prestations-photo{order:2}
 }
+
+/* Espacement entre sections (toutes versions) */
+section + section{margin-top:14px}
 
 /* Lightbox (mobile only) */
 .img-lightbox{
