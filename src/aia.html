@@ -140,8 +140,12 @@ img{display:block;max-width:100%}
 .facade-section .photo img{width:100%;height:auto;object-fit:contain;display:block}
 .facade-quote{
   position:absolute;top:0;left:0;right:0;
-  padding:44px 80px 0;
   display:flex;align-items:center;justify-content:center;gap:20px;
+  width:max-content;max-width:calc(100% - 80px);
+  margin:44px auto 0;
+  padding:24px 50px;
+  background:rgba(8,8,8,.5);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,169,110,.25);
 }
 .facade-quote .qmark{
   font-family:'Cormorant Garamond',serif;
@@ -267,7 +271,9 @@ img{display:block;max-width:100%}
 .securite-section .full-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
 .securite-content{
   position:relative;z-index:2;
-  max-width:560px;padding:100px 70px;
+  max-width:560px;margin:80px 70px;padding:50px 50px;
+  background:rgba(8,8,8,.55);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,169,110,.25);
 }
 .securite-content h2{
   font-family:'Cormorant Garamond',serif;
@@ -380,8 +386,11 @@ img{display:block;max-width:100%}
 .interior-hero{position:relative;background:#080808}
 .interior-hero img{width:100%;height:auto;object-fit:contain;display:block}
 .interior-hero-caption{
-  position:absolute;bottom:50px;left:0;right:0;
+  position:absolute;bottom:50px;left:50%;transform:translateX(-50%);
   text-align:center;
+  background:rgba(8,8,8,.5);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,169,110,.25);
+  padding:22px 44px;
 }
 .interior-hero-caption p{
   font-family:'Cormorant Garamond',serif;
@@ -631,6 +640,9 @@ img{display:block;max-width:100%}
 .ext-caption{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   text-align:center;
+  background:rgba(8,8,8,.5);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,169,110,.25);
+  padding:36px 60px;
 }
 .ext-caption p{
   font-family:'Cormorant Garamond',serif;
