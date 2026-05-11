@@ -1,0 +1,5 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": "src/server.ts",
+  "compatibility_flags": ["nodejs_compat"]
+}
