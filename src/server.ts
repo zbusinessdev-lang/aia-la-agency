@@ -1,23 +1,11 @@
 import "./lib/error-capture";
 
+import { createStartHandler, defaultStreamHandler } from "@tanstack/react-start/server";
+
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
-type ServerEntry = {
-  fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
-};
-
-let serverEntryPromise: Promise<ServerEntry> | undefined;
-
-async function getServerEntry(): Promise<ServerEntry> {
-  if (!serverEntryPromise) {
-    serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (module) => (module.default ?? module) as ServerEntry,
-    );
-  }
-
-  return serverEntryPromise;
-}
+const startHandler = createStartHandler(defaultStreamHandler);
 
 async function normalizeServerError(response: Response): Promise<Response> {
   if (response.status < 500) return response;
@@ -40,10 +28,9 @@ async function normalizeServerError(response: Response): Promise<Response> {
 }
 
 export default {
-  async fetch(request: Request, env: unknown, ctx: unknown) {
+  async fetch(request: Request, opts?: Parameters<typeof startHandler>[1]) {
     try {
-      const serverEntry = await getServerEntry();
-      const response = await serverEntry.fetch(request, env, ctx);
+      const response = await startHandler(request, opts);
       return await normalizeServerError(response);
     } catch (error) {
       console.error(error);
